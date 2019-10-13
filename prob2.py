@@ -1,21 +1,19 @@
-a = list(map(int, input().split(",")))
+L = list(map(int, input().split(' ')))
 k = int(input())
-m = []
-total = 0
-diff = 0
-a.sort()
-for i in range(0, len(a)):
-    total += a[i]
-    m.append(a[i])
-    if total >= k:
+L1 = []
+sum = 0
+
+for i in range(0, len(L) - 1):
+
+    if (sum + L[i] <= k):
+        sum = sum + L[i]
+        L1.append(L[i])
+
+
+
+    else:
         break
-if total == k:
-    print(m)
+if (sum == k):
+    print(L1)
 else:
-    diff = total - k
-if diff in a:
-    m.remove(diff)
-    m.sort()
-    print(m)
-elif diff not in a:
-    print("None")
+    print(None)
